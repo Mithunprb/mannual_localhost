@@ -1,8 +1,8 @@
 # mannual_localhost
 Thia program uses SimpleHTTPServer, BaseHTTPServer moduels to assign HTTP protocol on given port
 
-#Requiredments:
-*python 2.7x
+# Requiredments:
+* Python 2.7x
 
 ```python
     protocol = "HTTP/1.0"
