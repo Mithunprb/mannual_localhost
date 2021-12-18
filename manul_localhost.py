@@ -9,7 +9,8 @@ def test(HandlerClass=SimpleHTTPRequestHandler,
 
     protocol = "HTTP/1.0"
     host = ''
-    port = args['port']
+    port =  that_port   
+    print(port)
     if len(sys.argv) > 1:
         arg = sys.argv[1]
         if ':' in arg:
@@ -19,14 +20,17 @@ def test(HandlerClass=SimpleHTTPRequestHandler,
             try:
                 port = int(sys.argv[1])
             except:
-                host = sys.argv[1]
+                pass
+                # host = sys.argv[1]
 
     server_address = (host, port)
+    print(server_address)
 
     HandlerClass.protocol_version = protocol
     httpd = ServerClass(server_address, HandlerClass)
 
     sa = httpd.socket.getsockname()
+    print(sa)
     print("Serving HTTP on", sa[0], "port", sa[1], "...")
     httpd.serve_forever()
 
@@ -34,7 +38,7 @@ def test(HandlerClass=SimpleHTTPRequestHandler,
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-p", "--port", 
-        type=int, default=8000, help="Port in which you want HTTP protocol")
-
+        type=int, nargs='?', default=8000, help="Port in which you want HTTP protocol")
     args = vars(parser.parse_args())
+    that_port = int(args['port'])
     test()
