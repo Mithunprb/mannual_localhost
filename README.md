@@ -15,7 +15,7 @@ Assign port number to the variable ```port```
 
 * Python3 or above
 
-[manul_localhost.py](./manul_localhost.py)
+[manual_localhost.py](./manual_localhost.py)
 * Default ```port``` <br>
 ```python
 python -m manual_localhost
